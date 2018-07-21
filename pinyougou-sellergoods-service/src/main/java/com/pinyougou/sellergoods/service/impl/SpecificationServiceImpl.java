@@ -1,5 +1,6 @@
 package com.pinyougou.sellergoods.service.impl;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -128,22 +129,28 @@ public class SpecificationServiceImpl implements SpecificationService {
 	}
 	
 	
-		@Override
+	@Override
 	public PageResult findPage(TbSpecification specification, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
-		
-		TbSpecificationExample example=new TbSpecificationExample();
+
+		TbSpecificationExample example = new TbSpecificationExample();
 		Criteria criteria = example.createCriteria();
-		
-		if(specification!=null){			
-						if(specification.getSpecName()!=null && specification.getSpecName().length()>0){
-				criteria.andSpecNameLike("%"+specification.getSpecName()+"%");
+
+		if (specification != null) {
+			if (specification.getSpecName() != null && specification.getSpecName().length() > 0) {
+				criteria.andSpecNameLike("%" + specification.getSpecName() + "%");
 			}
-	
+
 		}
-		
-		Page<TbSpecification> page= (Page<TbSpecification>)specificationMapper.selectByExample(example);		
+
+		Page<TbSpecification> page = (Page<TbSpecification>) specificationMapper.selectByExample(example);
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-	
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public List<Map> selectOptionList() {
+		return specificationMapper.selectOptionList();
+	}
+
 }

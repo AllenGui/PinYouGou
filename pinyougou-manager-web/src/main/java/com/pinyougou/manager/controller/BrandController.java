@@ -1,6 +1,7 @@
 package com.pinyougou.manager.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,16 @@ import com.pinyougou.sellergoods.service.BrandService;
 import entity.CurrentResult;
 import entity.PageResult;
 
+/**
+ * 
+ * @ClassName: BrandController   
+ * @Description: TODO 
+ * @author: Focus
+ * @date: 2018年7月21日 下午8:54:55   
+ *     
+ * @Copyright: 2018 Focus All rights reserved. 
+ * 注意：本内容仅限于个人训练
+ */
 @RestController
 @RequestMapping("/brand")
 public class BrandController {
@@ -75,6 +86,12 @@ public class BrandController {
 	public PageResult search(@RequestBody TbBrand brand, int page, int rows) {
 		PageResult result = brandService.findPage(brand, page, rows);
 		return result;
+	}
+
+	@SuppressWarnings("rawtypes")
+	@RequestMapping("/selectOptionList")
+	public List<Map> selectOptionList() {
+		return brandService.selectOptionList();
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.pinyougou.sellergoods.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.pinyougou.pojo.TbBrand;
 
@@ -93,4 +94,15 @@ public interface BrandService {
 	 * @date: 2018年7月17日下午11:07:47
 	 */
 	public PageResult findPage(TbBrand brand, int page, int rows);
+	
+	/**
+	 * 
+	 * @Title: selectOptionList   
+	 * @Description: 返回下拉列表数据 
+	 * @return: List<Map>     
+	 * @author: Focus
+	 * @date: 2018年7月21日下午8:53:23
+	 */
+	@SuppressWarnings("rawtypes")
+	public List<Map> selectOptionList();
 }

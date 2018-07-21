@@ -3,7 +3,12 @@ package com.pinyougou.pojo;
 import java.io.Serializable;
 
 public class TbTypeTemplate implements Serializable{
-    private Long id;
+    /**   
+	 * @Fields serialVersionUID : TODO  
+	 */  
+	private static final long serialVersionUID = 8718482776875892570L;
+
+	private Long id;
 
     private String name;
 

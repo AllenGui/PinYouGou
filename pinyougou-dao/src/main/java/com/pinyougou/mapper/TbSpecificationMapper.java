@@ -31,4 +31,7 @@ public interface TbSpecificationMapper {
 
 	int updateByPrimaryKey(TbSpecification record);
 
+	@SuppressWarnings("rawtypes")
+	List<Map> selectOptionList();
+	
 }
