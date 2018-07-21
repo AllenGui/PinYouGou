@@ -29,7 +29,7 @@ app.controller('brandController', function($scope, $controller, brandService) {
 			object = brandService.add($scope.entity);
 		}
 		object.success(function(response) {
-			if (response.status) {
+			if (response.success) {
 				$scope.reloadList();
 			} else {
 				alert(response.message);
@@ -48,7 +48,7 @@ app.controller('brandController', function($scope, $controller, brandService) {
 	$scope.del = function() {
 		if (confirm('确定要删除吗？')) {
 			brandService.del($scope.selectIds).success(function(response) {
-				if (response.status) {
+				if (response.success) {
 					$scope.reloadList();// 刷新
 					$scope.selectIds = [];
 				} else {

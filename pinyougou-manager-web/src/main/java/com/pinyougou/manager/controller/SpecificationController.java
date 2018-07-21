@@ -4,12 +4,14 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.pinyougou.pojo.TbSpecification;
+import com.pinyougou.pojogroup.Specification;
 import com.pinyougou.sellergoods.service.SpecificationService;
 
-import entity.PageResult;
 import entity.CurrentResult;
+import entity.PageResult;
 /**
  * controller
  * @author Administrator
@@ -47,7 +49,7 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public CurrentResult add(@RequestBody TbSpecification specification){
+	public CurrentResult add(@RequestBody Specification specification){
 		try {
 			specificationService.add(specification);
 			return new CurrentResult(true, "增加成功");
@@ -63,7 +65,7 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public CurrentResult update(@RequestBody TbSpecification specification){
+	public CurrentResult update(@RequestBody Specification specification){
 		try {
 			specificationService.update(specification);
 			return new CurrentResult(true, "修改成功");
@@ -79,7 +81,7 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping("/findSingle")
-	public TbSpecification findSingle(Long id){
+	public Specification findSingle(Long id){
 		return specificationService.findSingle(id);		
 	}
 	
