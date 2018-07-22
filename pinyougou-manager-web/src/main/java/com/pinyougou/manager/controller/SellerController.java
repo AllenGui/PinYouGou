@@ -110,5 +110,26 @@ public class SellerController {
 	public PageResult search(@RequestBody TbSeller seller, int page, int rows  ){
 		return sellerService.findPage(seller, page, rows);		
 	}
+
+	/**
+	 * 
+	 * @Title: updateStatus   
+	 * @Description: TODO   
+	 * @param sellerId
+	 * @param status
+	 * @return: CurrentResult     
+	 * @author: Focus
+	 * @date: 2018年7月22日下午3:42:07
+	 */
+	@RequestMapping("/updateStatus")
+	public CurrentResult updateStatus(String sellerId, String status) {
+		try {
+			sellerService.updateStatus(sellerId, status);
+			return new CurrentResult(true, "成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new CurrentResult(false, "失败");
+		}
+	}
 	
 }

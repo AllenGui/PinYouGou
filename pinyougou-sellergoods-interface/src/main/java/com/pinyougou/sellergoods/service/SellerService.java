@@ -58,4 +58,14 @@ public interface SellerService {
 	 */
 	public PageResult findPage(TbSeller seller, int pageNum,int pageSize);
 	
+	/**
+	 * 
+	 * @Title: updateStatus   
+	 * @Description: 更新商家状态
+	 * @param sellerId
+	 * @param status: void     
+	 * @author: Focus
+	 * @date: 2018年7月22日下午3:32:48
+	 */
+	public void updateStatus(String sellerId, String status);
 }
