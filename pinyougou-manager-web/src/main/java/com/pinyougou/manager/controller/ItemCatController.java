@@ -111,4 +111,18 @@ public class ItemCatController {
 		return itemCatService.findPage(itemCat, page, rows);		
 	}
 	
+	/**
+	 * 
+	 * @Title: findByParentId   
+	 * @Description: 根据上级id查询商品分类列表 
+	 * @param parentId
+	 * @return: List<TbItemCat>     
+	 * @author: Focus
+	 * @date: 2018年7月25日下午8:16:21
+	 */
+	@RequestMapping("/findByParentId")
+	public List<TbItemCat> findByParentId(long parentId) {
+		return itemCatService.findByParentId(parentId);
+	}
+	
 }

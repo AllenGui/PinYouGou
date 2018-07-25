@@ -4,9 +4,14 @@ import com.pinyougou.pojo.TbItemCat;
 
 import entity.PageResult;
 /**
- * 服务层接口
- * @author Administrator
- *
+ * 
+ * @ClassName: ItemCatService   
+ * @Description: 商品分类
+ * @author: Focus
+ * @date: 2018年7月25日 下午8:08:51   
+ *     
+ * @Copyright: 2018 Focus All rights reserved. 
+ * 注意：本内容仅限于个人训练
  */
 public interface ItemCatService {
 
@@ -57,5 +62,16 @@ public interface ItemCatService {
 	 * @return
 	 */
 	public PageResult findPage(TbItemCat itemCat, int pageNum,int pageSize);
+	
+	/**
+	 * 
+	 * @Title: findByParentId   
+	 * @Description: 根据上级id查询分类列表   
+	 * @param parentId
+	 * @return: List<TbItemCat>     
+	 * @author: Focus
+	 * @date: 2018年7月25日下午8:10:06
+	 */
+	public List<TbItemCat> findByParentId(long parentId);
 	
 }
