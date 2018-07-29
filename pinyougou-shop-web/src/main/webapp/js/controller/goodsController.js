@@ -1,5 +1,6 @@
  //控制层 
-app.controller('goodsController' ,function($scope, $controller, goodsService, uploadService, itemCatService){	
+app.controller('goodsController' ,function($scope, $controller, goodsService, 
+		uploadService, itemCatService, typeTemplateService){	
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -126,5 +127,21 @@ app.controller('goodsController' ,function($scope, $controller, goodsService, up
 			$scope.entity.goods.typeTemplateId = response.typeId;
 		});
 	});
-
+	
+	// 读取模板ID后,读取品牌列表
+	$scope.$watch('entity.goods.typeTemplateId', function(newValue, oldValue) {
+		typeTemplateService.findSingle(newValue).success(function(response) {
+			// 模板对象
+			$scope.typeTemplate = response;
+			// 品牌列表类型转换
+			$scope.typeTemplate.brandIds = JSON.parse($scope.typeTemplate.brandIds);
+			// 扩展属性
+			$scope.entity.goodsDesc.customAttributeItems = JSON.parse($scope.typeTemplate.customAttributeItems);
+		});
+		// 查询规格列表
+		typeTemplateService.findSpecList(newValue).success(function(response) {
+			$scope.specList = response;
+		});
+	});
+	
 });	
