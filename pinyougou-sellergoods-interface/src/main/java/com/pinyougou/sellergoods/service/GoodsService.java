@@ -60,4 +60,15 @@ public interface GoodsService {
 	 */
 	public PageResult findPage(TbGoods goods, int pageNum,int pageSize);
 	
+	/**
+	 * 
+	 * @Title: updateStatus   
+	 * @Description: 批量修改状态  
+	 * @param ids
+	 * @param status: void     
+	 * @author: Focus
+	 * @date: 2018年7月29日下午4:42:59
+	 */
+	public void updateStatus(Long[] ids, String status);
+	
 }

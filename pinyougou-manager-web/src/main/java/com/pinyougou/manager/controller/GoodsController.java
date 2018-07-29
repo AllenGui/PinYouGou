@@ -95,5 +95,26 @@ public class GoodsController {
 	public PageResult search(@RequestBody TbGoods goods, int page, int rows  ){
 		return goodsService.findPage(goods, page, rows);		
 	}
+
+	/**
+	 * 
+	 * @Title: updateStatus   
+	 * @Description: 批量修改状态  
+	 * @param ids
+	 * @param status
+	 * @return: CurrentResult     
+	 * @author: Focus
+	 * @date: 2018年7月29日下午4:44:48
+	 */
+	@RequestMapping("/updateStatus")
+	public CurrentResult updateStatus(Long[] ids, String status) {
+		try {
+			goodsService.updateStatus(ids, status);
+			return new CurrentResult(true, "成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new CurrentResult(false, "失败");
+		}
+	}
 	
 }
