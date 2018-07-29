@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.pinyougou.pojo.TbGoods;
+import com.pinyougou.pojogroup.Goods;
 import com.pinyougou.sellergoods.service.GoodsService;
 
 import entity.PageResult;
@@ -47,7 +48,7 @@ public class GoodsController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public CurrentResult update(@RequestBody TbGoods goods){
+	public CurrentResult update(@RequestBody Goods goods){
 		try {
 			goodsService.update(goods);
 			return new CurrentResult(true, "修改成功");
@@ -63,7 +64,7 @@ public class GoodsController {
 	 * @return
 	 */
 	@RequestMapping("/findSingle")
-	public TbGoods findSingle(Long id){
+	public Goods findSingle(Long id){
 		return goodsService.findSingle(id);		
 	}
 	
