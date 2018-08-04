@@ -54,5 +54,15 @@ public interface ContentService {
 	 * @return
 	 */
 	public PageResult findPage(TbContent content, int pageNum, int pageSize);
-
+	
+	/**
+	 * 
+	 * @Title: findByCategoryId   
+	 * @Description: 根据广告分类id查询广告列表  
+	 * @param id
+	 * @return: List<TbContent>     
+	 * @author: Focus
+	 * @date: 2018年8月4日上午9:40:19
+	 */
+	public List<TbContent> findByCategoryId(Long categoryId);
 }
